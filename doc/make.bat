@@ -26,6 +26,14 @@ if errorlevel 9009 (
 	exit /b 1
 )
 
+if "%1" == "html" (
+	%SPHINXBUILD% -b html %SOURCEDIR% ../docs %SPHINXOPTS%
+	if errorlevel 1 exit /b 1
+	echo.
+	echo.Build finished. The HTML pages are in ../docs
+	goto end
+)
+
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%
 goto end
 

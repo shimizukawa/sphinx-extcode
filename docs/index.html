@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>sphinx-extcode - Sphinx extension &#8212; sphinx-extcode 0.1 ドキュメント</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/extcode.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/extcode.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="sphinx-extcode-sphinx-extension">
+<h1>sphinx-extcode - Sphinx extension<a class="headerlink" href="#sphinx-extcode-sphinx-extension" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="id1">
+<h1>目的<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>1つの <code class="docutils literal"><span class="pre">code-block</span></code> ディレクティブでサンプルのreSTソースを書くだけで、ソースとそのレンダリング結果の両方を表示します。</p>
+</div>
+<div class="section" id="id2">
+<h1>設定<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;extcode&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">extcode</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">#&#39;rendered-block&#39;: &#39;vertical&#39;,  デフォルトの動作を設定したい場合</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h1>利用例<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>コードブロックを以下のように書きます</p>
+<div class="highlight-rst"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> rst
+   <span class="nc">:rendered-block:</span> <span class="nf">vertical</span>
+
+   単語を <span class="ge">* で囲うと *</span>強調* になります。
+
+   <span class="gs">** は **</span>より強い強調** に使います。
+
+   <span class="s">`` （バッククオート） は ``make html``</span> のようにコードなどを表現します。
+
+   <span class="s">`Sphinx-users.jp </span><span class="si">&lt;http://sphinx-users.jp/&gt;</span><span class="s">`_</span> はSphinxの情報を発信しています。
+
+   リンクは <span class="s">`このように書いて`_</span> 、以降の行でURLを設定することもできます。
+
+<span class="p">   ..</span> <span class="nt">_このように書いて:</span> http://sphinx-doc.org/
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">:rendered-block:</span> <span class="pre">vertical</span></code> のように、オプションを指定できるように <code class="docutils literal"><span class="pre">code-block</span></code> ディレクティブを拡張しています。
+オプションには <code class="docutils literal"><span class="pre">vertical</span></code>, <code class="docutils literal"><span class="pre">horizontal</span></code>, <code class="docutils literal"><span class="pre">toggle</span></code>, <code class="docutils literal"><span class="pre">tab</span></code> を指定できます。</p>
+<div class="section" id="vertical">
+<h2>vertical - 縦に並べる<a class="headerlink" href="#vertical" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="extcode extcode-layout-vertical">
+<table border="1" class="extcode-layout docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><th class="extcode-layout stub"><span class="first last">literal</span></th>
+<td class="extcode-layout"><div class="first last highlight-rst"><div class="highlight"><pre><span></span>単語を <span class="ge">* で囲うと *</span>強調* になります。
+
+<span class="gs">** は **</span>より強い強調** に使います。
+
+<span class="s">`` （バッククオート） は ``make html``</span> のようにコードなどを表現します。
+
+<span class="s">`Sphinx-users.jp </span><span class="si">&lt;http://sphinx-users.jp/&gt;</span><span class="s">`_</span> はSphinxの情報を発信しています。
+
+リンクは <span class="s">`このように書いて`_</span> 、以降の行でURLを設定することもできます。
+
+<span class="p">..</span> <span class="nt">_このように書いて:</span> http://sphinx-doc.org/
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><th class="extcode-layout stub"><span class="first last">rendered</span></th>
+<td class="extcode-layout"><div class="first last docutils container">
+<div class="extcode-rendered"><p>単語を * で囲うと <em>強調</em> になります。</p>
+<p>** は <strong>より強い強調</strong> に使います。</p>
+<p>`` （バッククオート） は <code class="docutils literal"><span class="pre">make</span> <span class="pre">html</span></code> のようにコードなどを表現します。</p>
+<p><a class="reference external" href="http://sphinx-users.jp/">Sphinx-users.jp</a> はSphinxの情報を発信しています。</p>
+<p>リンクは <a class="reference external" href="http://sphinx-doc.org/">このように書いて</a> 、以降の行でURLを設定することもできます。</p>
+</div></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="horizontal">
+<h2>horizontal - 横に並べる<a class="headerlink" href="#horizontal" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="extcode extcode-layout-horizontal">
+<table border="1" class="extcode-layout docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="extcode-layout head"><span class="first last">literal</span></th>
+<th class="extcode-layout head"><span class="first last">rendered</span></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td class="extcode-layout"><div class="first last highlight-rst"><div class="highlight"><pre><span></span>単語を <span class="ge">* で囲うと *</span>強調* になります。
+
+<span class="gs">** は **</span>より強い強調** に使います。
+
+<span class="s">`` （バッククオート） は ``make html``</span> のようにコードなどを表現します。
+
+<span class="s">`Sphinx-users.jp </span><span class="si">&lt;http://sphinx-users.jp/&gt;</span><span class="s">`_</span> はSphinxの情報を発信しています。
+
+リンクは <span class="s">`このように書いて`_</span> 、以降の行でURLを設定することもできます。
+
+<span class="p">..</span> <span class="nt">_このように書いて:</span> http://sphinx-doc.org/
+</pre></div>
+</div>
+</td>
+<td class="extcode-layout"><div class="first last docutils container">
+<div class="extcode-rendered"><p>単語を * で囲うと <em>強調</em> になります。</p>
+<p>** は <strong>より強い強調</strong> に使います。</p>
+<p>`` （バッククオート） は <code class="docutils literal"><span class="pre">make</span> <span class="pre">html</span></code> のようにコードなどを表現します。</p>
+<p><a class="reference external" href="http://sphinx-users.jp/">Sphinx-users.jp</a> はSphinxの情報を発信しています。</p>
+<p>リンクは <a class="reference external" href="http://sphinx-doc.org/">このように書いて</a> 、以降の行でURLを設定することもできます。</p>
+</div></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="toggle">
+<h2>toggle - 右上のマークで切り替え<a class="headerlink" href="#toggle" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="extcode extcode-layout-toggle">
+<div class="highlight-rst"><div class="highlight"><pre><span></span>単語を <span class="ge">* で囲うと *</span>強調* になります。
+
+<span class="gs">** は **</span>より強い強調** に使います。
+
+<span class="s">`` （バッククオート） は ``make html``</span> のようにコードなどを表現します。
+
+<span class="s">`Sphinx-users.jp </span><span class="si">&lt;http://sphinx-users.jp/&gt;</span><span class="s">`_</span> はSphinxの情報を発信しています。
+
+リンクは <span class="s">`このように書いて`_</span> 、以降の行でURLを設定することもできます。
+
+<span class="p">..</span> <span class="nt">_このように書いて:</span> http://sphinx-doc.org/
+</pre></div>
+</div>
+<div class="docutils container">
+<div class="extcode-rendered"><p>単語を * で囲うと <em>強調</em> になります。</p>
+<p>** は <strong>より強い強調</strong> に使います。</p>
+<p>`` （バッククオート） は <code class="docutils literal"><span class="pre">make</span> <span class="pre">html</span></code> のようにコードなどを表現します。</p>
+<p><a class="reference external" href="http://sphinx-users.jp/">Sphinx-users.jp</a> はSphinxの情報を発信しています。</p>
+<p>リンクは <a class="reference external" href="http://sphinx-doc.org/">このように書いて</a> 、以降の行でURLを設定することもできます。</p>
+</div></div>
+</div>
+</div>
+<div class="section" id="tab">
+<h2>tab - タブで切り替え<a class="headerlink" href="#tab" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>tabは未実装です</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">sphinx-extcode - Sphinx extension</a></li>
+<li><a class="reference internal" href="#id1">目的</a></li>
+<li><a class="reference internal" href="#id2">設定</a></li>
+<li><a class="reference internal" href="#id3">利用例</a><ul>
+<li><a class="reference internal" href="#vertical">vertical - 縦に並べる</a></li>
+<li><a class="reference internal" href="#horizontal">horizontal - 横に並べる</a></li>
+<li><a class="reference internal" href="#toggle">toggle - 右上のマークで切り替え</a></li>
+<li><a class="reference internal" href="#tab">tab - タブで切り替え</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="検索" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, shimizukawa.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
