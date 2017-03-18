@@ -1,3 +1,0 @@
-# sphinx-extcode
-
-extcode
